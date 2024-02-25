@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,7 +13,7 @@ import { useNavigate } from 'react-router-dom'
 
 const defaultTheme = createTheme();
 
-export default function LoginPage() {
+export default function LoginPage({setUserDetails}) {
   const navigate = useNavigate();
   
   const handleSubmit = (event) => {
@@ -22,6 +23,7 @@ export default function LoginPage() {
       userId: data.get("userId"),
       password: data.get("password"),
     });
+    setUserDetails({name: data.get("userId").toUpperCase(), isLoggedIn: true});
     navigate("/");
   };
 

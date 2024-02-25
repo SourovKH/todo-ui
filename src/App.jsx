@@ -1,27 +1,30 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./components/Login";
+import { useState } from "react";
+import Header from "./components/Header";
+import HomePage from "./components/HomePage";
 
-const Homepage = () => <p>Home Page</p>;
 const ErrorPage = () => <p>Error Page</p>;
 
-function App() {
+const App = () => {
+  const [userDetails, setUserDetails] = useState({
+    name: undefined,
+    isLoggedIn: false,
+  });
+  console.log(userDetails);
   return (
-    <BrowserRouter basename="todo-app">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
+    <BrowserRouter>
+      <Header userDetails={userDetails}></Header>
       <Routes>
-        <Route path="/login" element={<LoginPage />}/>
-        <Route path="/" element={<Homepage />} />
+        <Route
+          path="/login"
+          element={<LoginPage setUserDetails={setUserDetails} />}
+        />
+        <Route path="/" element={<HomePage userDetails={userDetails} />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
