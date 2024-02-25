@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import ProfileIcon from "./ProfileIcon";
 
-const Header = ({userDetails}) => {
+const Header = ({userDetails, setUserDetails}) => {
   return (
     <div style={{
       display: 'flex',
@@ -18,7 +18,7 @@ const Header = ({userDetails}) => {
         textDecoration: 'none',
         color: 'white'
       }}>TODO</Link>
-      <ProfileIcon userDetails={userDetails} />
+      <ProfileIcon userDetails={userDetails} setUserDetails={setUserDetails}/>
     </div>
   )
 }
