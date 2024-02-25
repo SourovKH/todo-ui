@@ -9,13 +9,15 @@ const Header = ({userDetails}) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       backgroundColor: 'cornflowerblue',
-      height: '4em',
+      height: '3em',
       padding: '0em 1em'
     }}>
-      <h1><Link to="/" style={{
+      <Link to="/" style={{
+        fontSize: '50px',
+        fontWeight: '600',
         textDecoration: 'none',
         color: 'white'
-      }}>TODO</Link></h1>
+      }}>TODO</Link>
       <ProfileIcon userDetails={userDetails} />
     </div>
   )

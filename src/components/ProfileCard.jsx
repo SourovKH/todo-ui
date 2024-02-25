@@ -13,6 +13,7 @@ const ProfileCard = ({ userDetails }) => {
         top: "50px",
         display: "flex",
         flexDirection: "column",
+        gap: '0.5em',
         alignItems: 'center',
         boxShadow: '0 3px 10px rgb(0 0 0 / 0.6)',
         backgroundColor: 'white'
