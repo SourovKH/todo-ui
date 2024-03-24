@@ -21,7 +21,9 @@ export const DashBoardButton = styled('div')({
   textAlign: 'center',
   width: '50%',
   padding: '0.5em',
+  cursor: 'pointer',
   borderRadius: '50px',
+  color: 'cornflowerblue',
   backgroundColor: 'white',
 });
 
