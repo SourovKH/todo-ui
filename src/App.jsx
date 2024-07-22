@@ -4,6 +4,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import ErrorPage from "./components/ErrorPage";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   const [userDetails, setUserDetails] = useState({
@@ -12,7 +13,7 @@ const App = () => {
   });
   console.log(userDetails);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/todo">
       <Header userDetails={userDetails} setUserDetails={setUserDetails}></Header>
       <Routes>
         <Route
@@ -20,6 +21,7 @@ const App = () => {
           element={<LoginPage setUserDetails={setUserDetails} />}
         />
         <Route path="/" element={<HomePage userDetails={userDetails} />} />
+        <Route path="/dashboard" element={<Dashboard userDetails={userDetails} />} />
         <Route path="*" element={<ErrorPage message="Page Not Found"/>} />
       </Routes>
     </BrowserRouter>

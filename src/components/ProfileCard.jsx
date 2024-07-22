@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import NameAvatar from "./NameAvatar";
 import { Logout } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const HorizontalLine = () => {
   return (
@@ -16,8 +17,18 @@ const HorizontalLine = () => {
   );
 };
 
+const logout = (setUserDetails, goToHomePage) => {
+  setUserDetails({});
+  goToHomePage();
+}
+
 const ProfileCard = ({ userDetails, setUserDetails }) => {
   const { name, isLoggedIn } = userDetails;
+  const navigate = useNavigate();
+  const goToHomePage = () => {
+    navigate("/");
+  };
+
   return (
     <div
       style={{
@@ -58,7 +69,7 @@ const ProfileCard = ({ userDetails, setUserDetails }) => {
           <HorizontalLine />
           <div
             style={{ display: "flex", alignItems: "center", cursor: 'pointer' }}
-            onClick={() => setUserDetails({})}
+            onClick={() => logout(setUserDetails, goToHomePage)}
           >
             <pre>Logout </pre>
             <Logout></Logout>
