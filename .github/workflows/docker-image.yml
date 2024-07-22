@@ -21,19 +21,10 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push client image
+    - name: Build and push image
       uses: docker/build-push-action@v5
       with:
-        context: ./frontend
-        file: ./frontend/Dockerfile
+        file: ./Dockerfile
         push: true
         tags: skh02/todo-frontend:latest
-
-    - name: Build and push bff image
-      uses: docker/build-push-action@v5
-      with:
-        context: ./bff
-        file: ./bff/Dockerfile
-        push: true
-        tags: skh02/todo-bff:latest
 
