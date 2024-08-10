@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  bff:
+    image: skh02/todo-bff
+    container_name: todo-bff
+    ports:
+      - "8001:8001"
+    
+  auth:
+    image: skh02/auth-service
+    container_name: auth-service
+    ports:
+      - "8002:8002"
